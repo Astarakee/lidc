@@ -13,7 +13,7 @@ In specific, the script returns:
           segmentation masks in .nii.gz format for all the labeled nodules (both overlapped and union masks)
           images and masks are saved in full image size and same spacing system
 * A csv file containing:
-          Name of the saved images
+          Name of the saved images \n
           name of the saved segmentation masks (both overlapped and union masks)
           Number of annotation for each nodule(mask)
           Malignancy score
