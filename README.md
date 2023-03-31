@@ -9,9 +9,9 @@ the nodules which were annotated by at least two experts, while some other emplo
 This simple script aims to extract comprehensive data from the LIDC in a harmonized way for further analyses.
 In specific, the script returns:
 * For each patient ID, a directory containing:
-          Orignal volume in .nii.gz format \n
-          segmentation masks in .nii.gz format for all the labeled nodules (both overlapped and union masks) \n
-          images and masks are saved in full image size and same spacing system \n
+          Orignal volume in .nii.gz format \
+          segmentation masks in .nii.gz format for all the labeled nodules (both overlapped and union masks) \
+          images and masks are saved in full image size and same spacing system \
 * A csv file containing:
           Name of the saved images \n
           name of the saved segmentation masks (both overlapped and union masks)
