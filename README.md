@@ -32,7 +32,7 @@ In specific, the script returns:
 
 Clone the git project:
 ```
-$ https://github.com/Astarakee/lidc.git
+https://github.com/Astarakee/lidc.git
 ```
 Changed the directory to the cloned folder:
 ```
