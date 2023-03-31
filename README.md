@@ -8,24 +8,24 @@ Another example is related to the number of manual annotations for each nodule. 
 the nodules which were annotated by at least two experts, while some other employed all the nodules.
 This simple script aims to extract comprehensive data from the LIDC in a harmonized way for further analyses.
 In specific, the script returns:
-* For each patient ID, a directory containing:
+* For each patient ID, a directory containing: \
           Orignal volume in .nii.gz format \
           segmentation masks in .nii.gz format for all the labeled nodules (both overlapped and union masks) \
-          images and masks are saved in full image size and same spacing system \
-* A csv file containing:
-          Name of the saved images \n
-          name of the saved segmentation masks (both overlapped and union masks)
-          Number of annotation for each nodule(mask)
-          Malignancy score
-          calcificatoin score
-          nodule volume
-          nodule diameter
-          lobulatoin score
-          spiculation score
-          sphericity score
-          subtlety score
-          nodule surfiace
-          texture score
+          images and masks are saved in full image size and same spacing system 
+* A csv file containing: \
+          Name of the saved images \
+          name of the saved segmentation masks (both overlapped and union masks)\ 
+          Number of annotation for each nodule(mask) \
+          Malignancy score \
+          calcificatoin score \
+          nodule volume \
+          nodule diameter \
+          lobulatoin score \
+          spiculation score \
+          sphericity score \
+          subtlety score \
+          nodule surfiace \
+          texture score 
           
           
 ## set-up
