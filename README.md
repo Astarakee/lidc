@@ -22,4 +22,20 @@ Install the required libraries:
 ```
 pip install -r requirements.txt
 ```
+Create the PyLIDC configutatin file and save it in the home directory:
+/home/[user]/.pylidcrc
+This config file should contain:
+```
+[dicom]
+path = absolute_path_to_original_LIDC_dir
+warn = True
+```
+Execute the script:
+```
+python main.py -i absolute_path_to_original_LIDC_dir -o absolute_path_to_saving_dir
+```
+TODO
+```
+Add requirements.txt
+```
 
