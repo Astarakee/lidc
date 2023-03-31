@@ -8,3 +8,18 @@ Another example is related to the number of manual annotations for each nodule. 
 the nodules which were annotated by at least two experts, while some other employed all the nodules.
 This simple script aims to extract comprehensive data from the LIDC in a harmonized way for further analyses.
 
+## set-up
+
+Clone the git project:
+```
+$ https://github.com/Astarakee/lidc.git
+```
+Changed the directory to the cloned folder:
+```
+cd lidc
+```
+Install the required libraries:
+```
+pip install -r requirements.txt
+```
+
