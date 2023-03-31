@@ -1,50 +1,23 @@
-import numpy as np  
-import matplotlib.pyplot as plt  
-import pylidc as pl
 import os 
-import SimpleITK as itk
+import numpy as np
 import pandas as pd
-from copy import deepcopy
+import pylidc as pl
+import SimpleITK as itk
+from utils.json_pickle_stuff import write_pickle
+from utils.tools import union_mask, overlap_majority
 from utils.sitk_stuff import read_dicom_series, reorient_itk
 
 
-
-def union_mask(expert_masks):
-    
-    temp_np = np.array(expert_masks)
-    temp_sum = np.sum(temp_np, axis=0)
-    binary_temp = deepcopy(temp_sum)
-    binary_temp[binary_temp!=0] = 1
-    binary_temp = binary_temp.astype('uint8')
-    
-    return binary_temp
-
-def overlap_majority(expert_masks):
-    
-    n_masks = len(expert_masks)
-    temp_np = np.array(expert_masks)
-    temp_sum = np.sum(temp_np, axis=0)
-    half_thr = int(np.ceil(n_masks/2))
-    binary_temp = deepcopy(temp_sum)
-    binary_temp[binary_temp<half_thr] = 0
-    binary_temp[binary_temp>=half_thr] = 1    
-    binary_temp = binary_temp.astype('uint8')
-    
-    return binary_temp
-
-
+data_path = '/mnt/work/data/Lung/LIDC/LIDC-IDRI'
+write_path = '/mnt/work/data/Lung/LIDC/LIDC_organized'
 
 scans = pl.query(pl.Scan)
+print('\n'*5)
+print('Original number of LIDC scans is: {}.'.format(scans.count()))
+print('\n'*5)
 
-print(scans.count()) 
 
-path = '/mnt/work/data/Lung/LIDC/LIDC-IDRI'
-path_folders = os.listdir(path)
-
-write_path = './'
-count = 0
-my_id = 1
-
+path_folders = os.listdir(data_path)
 df_colnames = [
             'img', 'mask_union', 'mask_overlap', 
             'n_annotation', 'malignancy', 'calcification', 
@@ -52,9 +25,12 @@ df_colnames = [
             'sphericity', 'subtlety', 'surface_area', 'texture'
 ]
 
+
 df = pd.DataFrame(columns=df_colnames)
-feature_save_path = './lidc.csv'
+data_info = os.path.join(write_path,'MetaData.csv')
 path_folders = path_folders[:20]
+data_logs = {}
+nodule_count = 0
 
 for pid in path_folders: #adjust according to the number of folders you downloaded
 
@@ -162,10 +138,13 @@ for pid in path_folders: #adjust according to the number of folders you download
 
            fingerprint_df = pd.DataFrame(fingerprint, index=[0])
            df = pd.concat([df, fingerprint_df], axis=0, ignore_index=True)
+           nodule_count += 1
            
 
-df.to_csv(feature_save_path)
-
-          
-               
-           
+df.to_csv(data_info)
+data_logs['input_data_dir'] = data_path
+data_logs['extracted_info'] = df_colnames
+data_logs['total_nodules'] = nodule_count
+data_logs['output_saved_dir'] = write_path
+data_logs['organized_subjects'] = path_folders
+write_pickle(os.path.join(write_path,'logs.pickle'), data_logs)
