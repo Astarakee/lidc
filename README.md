@@ -24,7 +24,7 @@ In specific, the script returns:
           spiculation score \
           sphericity score \
           subtlety score \
-          nodule surfiace \
+          nodule surface \
           texture score 
           
           
