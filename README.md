@@ -1,5 +1,5 @@
 # LIDC-IDRI dataset harmonization
-LIDC-IDRI dataset includes a large-scale annotated CT images. The original data is stored in Dicom series format and
+LIDC-IDRI dataset includes a large-scale annotated CT images. The original LIDC data is stored in Dicom series format and
 the corresponding annoations were stored as XML file format. Standard PyLIDC library was designed to read
 the data and extract the images, segmentation masks, or some labeled features.
 In different studies, researchers have employed this dataset in different ways. For example, many people 
