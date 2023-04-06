@@ -14,7 +14,7 @@ In specific, the script returns:
           images and masks are saved in full image size and same spacing system 
 * A csv file containing: \
           Name of the saved images \
-          name of the saved segmentation masks (both overlapped and union masks)\ 
+          name of the saved segmentation masks (both overlapped and union masks) \ 
           Number of annotation for each nodule(mask) \
           Malignancy score \
           calcificatoin score \
